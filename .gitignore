@@ -25,6 +25,7 @@ yarn-error.log*
 # local design review material
 /.design-reference/
 /design-qa.md
+/design-qa copy.md
 
 # legacy portfolio files kept only in the local workspace
 /public/curriculo.pdf
@@ -38,5 +39,7 @@ yarn-error.log*
 !/src/assets/brand/**
 !/src/assets/patients/
 !/src/assets/patients/**
+!/src/assets/screens/
+!/src/assets/screens/**
 !/src/assets/video/
 !/src/assets/video/**

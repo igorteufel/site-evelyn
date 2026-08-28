@@ -3,19 +3,27 @@ import styled from 'styled-components';
 export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
-  margin: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   z-index: 1000;
-  padding: 16px 0;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(35, 10, 72, 0.88);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   backdrop-filter: blur(12px) saturate(180%);
-  border-bottom: 1px solid rgba(21, 33, 58, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+`;
+
+export const HeaderContent = styled.div`
   width: 100%;
+  max-width: ${({ theme }) => theme.layout.wideMax};
+  margin: 0 auto;
+  min-height: 74px;
+  padding: 12px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 14px 16px;
     align-items: flex-start;
     gap: 14px;
     flex-wrap: wrap;
@@ -33,8 +41,9 @@ export const Brand = styled.a`
 
 export const BrandLogo = styled.img`
   display: block;
-  width: 132px;
+  width: 118px;
   height: auto;
+  filter: brightness(0) invert(1);
 `;
 
 export const Nav = styled.nav`
@@ -53,17 +62,18 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled.a`
-  color: ${({ theme }) => theme.colors.muted};
-  font-size: 14px;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   text-decoration: none;
   padding: 10px 8px;
   transition: all 0.3s ease;
   white-space: nowrap;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.text};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.onBrand};
   }
 `;
 
@@ -73,11 +83,11 @@ export const HeaderCta = styled.a`
   justify-content: center;
   min-height: 44px;
   padding: 0 18px;
-  border-radius: 10px;
-  background: ${({ theme }) => theme.colors.primary};
-  color: #ffffff;
+  border-radius: ${({ theme }) => theme.radii.round};
+  background: ${({ theme }) => theme.colors.onBrand};
+  color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
   transition:
@@ -86,6 +96,6 @@ export const HeaderCta = styled.a`
 
   &:hover {
     transform: translateY(-2px);
-    background: ${({ theme }) => theme.colors.primaryHover};
+    background: ${({ theme }) => theme.colors.brand[100]};
   }
 `;

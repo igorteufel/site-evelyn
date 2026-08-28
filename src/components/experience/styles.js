@@ -2,33 +2,71 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   position: relative;
-  width: calc(100% + 64px);
-  min-height: 560px;
-  margin-left: -32px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   overflow: hidden;
   isolation: isolate;
-  border-radius: 28px;
-  background: #070a18;
+  background: ${({ theme }) => theme.colors.ink};
   box-shadow: 0 30px 80px rgba(12, 10, 32, 0.22);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: calc(100% + 32px);
-    min-height: 520px;
-    margin-left: -16px;
-    border-radius: 22px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -190px;
+    left: -8%;
+    width: 116%;
+    height: 510px;
+    border-radius: 0 0 50% 50%;
+    background: ${({ theme }) => theme.colors.surface};
+    z-index: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    min-height: 620px;
+    &::before {
+      top: -150px;
+      height: 300px;
+    }
   }
 `;
 
+export const Inner = styled.div`
+  position: relative;
+  width: calc(100% - 48px);
+  max-width: 1384px;
+  min-height: 920px;
+  margin: 0 auto;
+  padding: 58px 64px 86px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: calc(100% - 16px);
+    min-height: 760px;
+    padding: 44px 28px 72px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    width: 100%;
+    min-height: 620px;
+    padding: 34px 16px 72px;
+  }
+`;
+
+export const VideoFrame = styled.div`
+  position: relative;
+  z-index: 2;
+  width: min(960px, 100%);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 18px;
+  background: #0b1020;
+  box-shadow: 0 30px 76px rgba(8, 11, 26, 0.3);
+`;
+
 export const Video = styled.video`
-  position: absolute;
-  inset: 0;
-  z-index: -3;
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
 
@@ -37,56 +75,34 @@ export const Video = styled.video`
   }
 `;
 
-export const Scrim = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5, 7, 20, 0.94) 0%,
-      rgba(5, 7, 20, 0.8) 32%,
-      rgba(5, 7, 20, 0.22) 66%,
-      rgba(5, 7, 20, 0.08) 100%
-    ),
-    linear-gradient(0deg, rgba(5, 7, 20, 0.4), transparent 44%);
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    background:
-      linear-gradient(0deg, rgba(5, 7, 20, 0.96) 0%, rgba(5, 7, 20, 0.7) 52%, rgba(5, 7, 20, 0.14) 100%),
-      linear-gradient(90deg, rgba(5, 7, 20, 0.42), transparent);
-  }
-`;
-
 export const Content = styled.div`
-  width: min(620px, 60%);
-  min-height: 560px;
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 18px;
-  padding: 72px 64px;
-  color: #ffffff;
+  margin: 66px auto 0;
+  padding: 0;
+  color: ${({ theme }) => theme.colors.onBrand};
+  text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    min-height: 520px;
-    padding: 56px 40px;
+    margin-top: 54px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 100%;
-    min-height: 620px;
-    justify-content: flex-end;
-    padding: 240px 22px 88px;
+    margin-top: 46px;
   }
 `;
 
 export const Kicker = styled.p`
   margin: 0;
-  color: #caa9f8;
-  font-size: 12px;
-  font-weight: 850;
+  color: ${({ theme }) => theme.colors.brand[300]};
+  font-size: ${({ theme }) => theme.typography.sizes.label};
+  font-weight: ${({ theme }) => theme.typography.weights.black};
   letter-spacing: 0.1em;
   text-transform: uppercase;
 `;
@@ -94,8 +110,8 @@ export const Kicker = styled.p`
 export const Title = styled.h2`
   max-width: 580px;
   margin: 0;
-  font-size: clamp(38px, 4.6vw, 62px);
-  font-weight: 850;
+  font-size: ${({ theme }) => theme.typography.sizes.section};
+  font-weight: ${({ theme }) => theme.typography.weights.black};
   line-height: 1;
   letter-spacing: -0.04em;
 `;
@@ -104,41 +120,98 @@ export const Text = styled.p`
   max-width: 540px;
   margin: 0;
   color: rgba(255, 255, 255, 0.74);
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.typography.sizes.bodyLarge};
   line-height: 1.65;
 `;
 
-export const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
+export const FeatureGrid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 52px;
+  margin-top: 34px;
+  text-align: left;
 
-  span {
-    padding: 9px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    color: rgba(255, 255, 255, 0.82);
-    background: rgba(8, 10, 26, 0.34);
-    backdrop-filter: blur(10px);
-    font-size: 11px;
-    font-weight: 750;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 26px;
   }
 `;
 
-export const PlaybackButton = styled.button`
-  position: absolute;
-  top: 24px;
-  right: 24px;
+export const Feature = styled.article`
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+`;
+
+export const FeatureIcon = styled.span`
   width: 44px;
   height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  color: ${({ theme }) => theme.colors.success.base};
+  background: rgba(98, 213, 154, 0.1);
+  font-size: 17px;
+  line-height: 1;
+
+  svg {
+    display: block;
+  }
+`;
+
+export const FeatureCopy = styled.div`
+  small {
+    display: block;
+    margin-bottom: 7px;
+    color: rgba(202, 169, 248, 0.72);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 8px;
+    color: ${({ theme }) => theme.colors.onBrand};
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+`;
+
+export const PlaybackButton = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 58px;
+  height: 58px;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  color: #ffffff;
-  background: rgba(5, 7, 20, 0.46);
+  background: rgba(255, 255, 255, 0.92);
+  color: ${({ theme }) => theme.colors.primary};
   backdrop-filter: blur(12px);
   cursor: pointer;
   transition:
@@ -146,8 +219,8 @@ export const PlaybackButton = styled.button`
     background 0.2s ease;
 
   &:hover {
-    transform: scale(1.06);
-    background: rgba(136, 60, 236, 0.72);
+    transform: translate(-50%, -50%) scale(1.06);
+    background: #ffffff;
   }
 
   &:focus-visible {
@@ -159,7 +232,8 @@ export const PlaybackButton = styled.button`
 export const Signature = styled.div`
   position: absolute;
   right: 24px;
-  bottom: 22px;
+  bottom: 24px;
+  z-index: 2;
   display: flex;
   align-items: baseline;
   gap: 8px;

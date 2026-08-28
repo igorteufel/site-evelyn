@@ -24,25 +24,31 @@ export default function Header() {
 
   return (
     <S.StyledHeader>
-      <S.Brand href="#inicio" onClick={handleScroll('inicio')}>
-        <S.BrandLogo src={helpsiLogo} alt="Helpsi" />
-      </S.Brand>
+      <S.HeaderContent>
+        <S.Brand href="#inicio" onClick={handleScroll('inicio')}>
+          <S.BrandLogo src={helpsiLogo} alt="Helpsi" />
+        </S.Brand>
 
-      <S.Nav aria-label="Navegação principal">
-        {menuItems.map((item) => (
-          <S.NavLink
-            key={item.href}
-            href={`#${item.href}`}
-            onClick={handleScroll(item.href)}
-          >
-            {item.label}
-          </S.NavLink>
-        ))}
-      </S.Nav>
+        <S.Nav aria-label="Navegação principal">
+          {menuItems.map((item) => (
+            <S.NavLink
+              key={item.href}
+              href={`#${item.href}`}
+              onClick={handleScroll(item.href)}
+            >
+              {item.label}
+            </S.NavLink>
+          ))}
+        </S.Nav>
 
-      <S.HeaderCta href="#contato" onClick={handleScroll('contato')}>
-        Quero conhecer
-      </S.HeaderCta>
+        <S.HeaderCta
+          href="https://app.helpsico.com.br/login"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Acessar sistema
+        </S.HeaderCta>
+      </S.HeaderContent>
     </S.StyledHeader>
   );
 }

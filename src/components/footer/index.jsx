@@ -1,16 +1,17 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import demoBackground from '../../assets/brand/demo-consulting-room.png';
 import * as S from './styles';
 
 export default function Footer() {
   return (
     <S.Section id="contato">
-      <S.Container>
+      <S.Container $background={demoBackground}>
         <S.Kicker>Comece com calma</S.Kicker>
-        <S.Title>Simplifique a gestão do seu consultório.</S.Title>
+        <S.Title>Mais tempo para cuidar. Mais clareza para decidir.</S.Title>
 
         <S.Subtitle>
-          Conheça a Helpsi e descubra como organizar sua rotina de forma
-          simples, segura e eficiente.
+          Em uma conversa leve, mostramos como a Helpsi pode se encaixar na
+          rotina da sua clínica.
         </S.Subtitle>
 
         <S.Actions>

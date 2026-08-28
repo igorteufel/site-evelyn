@@ -1,33 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   FaArrowRight,
+  FaBrain,
   FaCalendarAlt,
-  FaChevronDown,
+  FaChartPie,
   FaChevronLeft,
   FaChevronRight,
   FaFileInvoiceDollar,
-  FaFilter,
-  FaGlobe,
-  FaHistory,
-  FaHome,
+  FaFileMedicalAlt,
   FaPause,
   FaPlay,
-  FaPlus,
   FaRoute,
-  FaSearch,
   FaUserFriends,
-  FaWallet,
 } from 'react-icons/fa';
-import brainThinking from '../../assets/brand/brain-friendly-thinking.png';
-import helpsiLogo from '../../assets/brand/helpsi-logo.png';
-import anaAvatar from '../../assets/patients/ana-lima.png';
-import gabrielAvatar from '../../assets/patients/gabriel-alves.png';
-import lucasAvatar from '../../assets/patients/lucas-martins.png';
-import marinaAvatar from '../../assets/patients/marina-costa.png';
-import rafaelAvatar from '../../assets/patients/rafael-souza.png';
-import { DashboardPanel } from '../systemtour';
+import accountsScreen from '../../assets/screens/accounts.png';
+import agendaScreen from '../../assets/screens/agenda.png';
+import clinicHealthScreen from '../../assets/screens/clinic-health-demo-v2.png';
+import homeDetailsScreen from '../../assets/screens/home-details.png';
+import homeOverviewScreen from '../../assets/screens/home-overview.png';
+import journeyScreen from '../../assets/screens/journey.png';
+import patientsScreen from '../../assets/screens/patients.png';
 import * as S from './styles';
-import * as T from '../systemtour/styles';
 
 const features = [
   {
@@ -38,12 +31,17 @@ const features = [
   {
     icon: <FaUserFriends />,
     title: 'Pacientes',
-    text: 'Tenha dados, contatos e informações importantes de cada paciente sempre à mão.',
+    text: 'Reúna cadastro, status, próxima sessão e informações essenciais de cada acompanhamento.',
   },
   {
-    icon: <FaHistory />,
-    title: 'Histórico',
-    text: 'Acompanhe rapidamente os atendimentos realizados e mantenha a rotina em ordem.',
+    icon: <FaFileMedicalAlt />,
+    title: 'Prontuário e anamnese',
+    text: 'Retome o contexto de cada sessão com registros clínicos vinculados ao acompanhamento.',
+  },
+  {
+    icon: <FaRoute />,
+    title: 'Jornada',
+    text: 'Visualize presença, frequência, reagendamentos e a continuidade de cada acompanhamento.',
   },
   {
     icon: <FaFileInvoiceDollar />,
@@ -51,19 +49,15 @@ const features = [
     text: 'Acompanhe pagamentos realizados, sessões pendentes e faturamento do consultório.',
   },
   {
-    icon: <FaGlobe />,
-    title: 'Acesso web',
-    text: 'Use a Helpsi pelo navegador em qualquer computador, sem depender de vários aplicativos.',
+    icon: <FaChartPie />,
+    title: 'Saúde da Clínica',
+    text: 'Conecte realizado, previsão, presença e sinais da Brain para entender o momento da prática.',
   },
-];
-
-const patientRecords = [
-  { name: 'Ana Lima', avatar: anaAvatar, phone: '(00) 90000-0001', email: 'ana.lima@exemplo.com', country: 'Brasil', value: 'R$ 130,00' },
-  { name: 'Rafael Souza', avatar: rafaelAvatar, phone: '(00) 90000-0002', email: 'rafael@exemplo.com', country: 'Brasil', value: 'R$ 120,00' },
-  { name: 'Lucas Martins', avatar: lucasAvatar, phone: '+351 900 000 003', email: 'lucas@exemplo.com', country: 'Portugal', value: 'R$ 160,00' },
-  { name: 'Marina Freitas', avatar: marinaAvatar, phone: '+44 7700 900004', email: 'marina@exemplo.com', country: 'Reino Unido', value: 'R$ 130,00' },
-  { name: 'Gabriel Alves', avatar: gabrielAvatar, phone: '(00) 90000-0005', email: 'gabriel@exemplo.com', country: 'Brasil', value: 'R$ 100,00' },
-  { name: 'Beatriz Melo', avatar: anaAvatar, phone: '(00) 90000-0006', email: 'beatriz@exemplo.com', country: 'Brasil', value: 'R$ 140,00' },
+  {
+    icon: <FaBrain />,
+    title: 'Brain',
+    text: 'Receba um resumo do dia, veja atenções priorizadas e siga direto para a próxima ação.',
+  },
 ];
 
 const carouselSlides = [
@@ -72,52 +66,12 @@ const carouselSlides = [
   { id: 'agenda', label: 'Agenda' },
   { id: 'journey', label: 'Jornada' },
   { id: 'accounts', label: 'Contas' },
+  { id: 'clinic-health', label: 'Saúde + Brain' },
 ];
-
-const carouselWeekDays = [
-  ['SEG', '27'],
-  ['TER', '28'],
-  ['QUA', '29'],
-  ['QUI', '30'],
-  ['SEX', '31'],
-  ['SÁB', '1'],
-  ['DOM', '2'],
-];
-
-const carouselTimes = ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00'];
-
-const carouselEvents = [
-  { name: 'Ana Lima', time: '08:00 às 09:00', column: 3, row: 1, span: 2, tone: 'purple' },
-  { name: 'Rafael Souza', time: '08:30 às 09:30', column: 4, row: 2, span: 2, tone: 'purple' },
-  { name: 'Lucas Martins', time: '09:00 às 10:00', column: 2, row: 3, span: 2, tone: 'coral' },
-  { name: 'Horário reservado', time: '10:00 às 11:00', column: 5, row: 5, span: 2, tone: 'gray' },
-  { name: 'Gabriel Alves', time: '10:00 às 11:00', column: 6, row: 5, span: 2, tone: 'green' },
-];
-
-function ProductSidebar({ active }) {
-  const items = [
-    { id: 'home', label: 'Home', icon: <FaHome /> },
-    { id: 'patients', label: 'Pacientes', icon: <FaUserFriends /> },
-    { id: 'agenda', label: 'Agenda', icon: <FaCalendarAlt /> },
-    { id: 'journey', label: 'Jornada', icon: <FaRoute /> },
-    { id: 'accounts', label: 'Contas', icon: <FaWallet /> },
-  ];
-
-  return (
-    <S.PreviewSidebar>
-      <S.PreviewLogo src={helpsiLogo} alt="Helpsi" />
-      {items.map((item) => (
-        <S.PreviewNavItem key={item.id} $active={active === item.id}>
-          {item.icon}
-          <span>{item.label}</span>
-        </S.PreviewNavItem>
-      ))}
-    </S.PreviewSidebar>
-  );
-}
 
 function Portfolio() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [homeView, setHomeView] = useState('overview');
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const dragStart = useRef(null);
@@ -159,10 +113,10 @@ function Portfolio() {
     <S.Section id="funcionalidades">
       <S.Header>
         <S.Kicker>Funcionalidades</S.Kicker>
-        <S.Title>Tudo o que você precisa para administrar seu consultório</S.Title>
+        <S.Title>Da rotina clínica à gestão do consultório</S.Title>
         <S.Subtitle>
-          Uma plataforma criada para facilitar sua rotina desde o primeiro
-          atendimento até o acompanhamento financeiro.
+          Sete capacidades conectadas para acompanhar cada pessoa, organizar a
+          operação e entender o momento da sua prática.
         </S.Subtitle>
       </S.Header>
 
@@ -186,8 +140,8 @@ function Portfolio() {
             </S.ProductStoryTitle>
           </div>
           <S.ProductStoryText>
-            Da visão geral às contas, percorra pacientes, agenda e jornada em
-            telas claras, com as informações importantes sempre em primeiro plano.
+            Da visão geral à Saúde da Clínica, veja como contexto, operação e
+            leitura da Brain permanecem no mesmo fluxo.
           </S.ProductStoryText>
         </S.ProductStoryHeader>
 
@@ -228,15 +182,39 @@ function Portfolio() {
                 inert={activeSlide !== 0 ? true : undefined}
                 aria-label="Tela Home"
               >
-                <S.MainScreen>
-                  <S.AppPreview>
-                    <ProductSidebar active="home" />
-                    <S.PreviewContent>
-                      <DashboardPanel />
-                    </S.PreviewContent>
-                  </S.AppPreview>
-                  <S.ScreenLabel>Visão geral do consultório</S.ScreenLabel>
-                </S.MainScreen>
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={homeView === 'overview' ? homeOverviewScreen : homeDetailsScreen}
+                      alt={
+                        homeView === 'overview'
+                          ? 'Dashboard Home da Helpsi com indicadores e gráfico financeiro'
+                          : 'Dashboard Home da Helpsi com agenda, pacientes por país e aniversariantes'
+                      }
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Visão geral do consultório</span>
+                    <S.HomeViewToggle aria-label="Selecionar trecho da Home">
+                      <button
+                        type="button"
+                        className={homeView === 'overview' ? 'active' : ''}
+                        onClick={() => setHomeView('overview')}
+                        aria-pressed={homeView === 'overview'}
+                      >
+                        Resumo
+                      </button>
+                      <button
+                        type="button"
+                        className={homeView === 'details' ? 'active' : ''}
+                        onClick={() => setHomeView('details')}
+                        aria-pressed={homeView === 'details'}
+                      >
+                        Indicadores
+                      </button>
+                    </S.HomeViewToggle>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
               </S.CarouselSlide>
 
               <S.CarouselSlide
@@ -244,58 +222,17 @@ function Portfolio() {
                 inert={activeSlide !== 1 ? true : undefined}
                 aria-label="Tela de Pacientes"
               >
-                <S.MainScreen>
-                  <S.AppPreview>
-                    <ProductSidebar active="patients" />
-                    <S.PreviewContent>
-                      <S.PatientsPageHeader>
-                        <div>
-                          <strong>Pacientes</strong>
-                          <span>Gerencie seus cadastros e informações dos pacientes.</span>
-                        </div>
-                        <S.PatientHeaderActions>
-                          <button type="button" aria-label="Buscar pacientes"><FaSearch /></button>
-                          <button type="button"><FaFilter /> Filtrar</button>
-                          <S.NewPatientButton type="button">
-                            <FaPlus />
-                            Cadastrar paciente
-                          </S.NewPatientButton>
-                        </S.PatientHeaderActions>
-                      </S.PatientsPageHeader>
-
-                      <S.PatientTableScroll>
-                        <S.PatientDataTable>
-                          <S.PatientDataHead>
-                            <span>Nome completo</span>
-                            <span>Contato</span>
-                            <span>E-mail</span>
-                            <span>País</span>
-                            <span>Valor sessão</span>
-                            <span>Status</span>
-                            <span>Ações</span>
-                          </S.PatientDataHead>
-                          {patientRecords.map((patient) => (
-                            <S.PatientDataRow key={patient.name}>
-                              <S.PatientName>
-                                <img src={patient.avatar} alt="" />
-                                <strong>{patient.name}</strong>
-                              </S.PatientName>
-                              <span>{patient.phone}</span>
-                              <span>{patient.email}</span>
-                              <S.Country><FaGlobe /> {patient.country}</S.Country>
-                              <span>{patient.value}</span>
-                              <S.ActiveStatus>Ativo</S.ActiveStatus>
-                              <button type="button" aria-label={`Abrir cadastro de ${patient.name}`}>
-                                <FaArrowRight />
-                              </button>
-                            </S.PatientDataRow>
-                          ))}
-                        </S.PatientDataTable>
-                      </S.PatientTableScroll>
-                    </S.PreviewContent>
-                  </S.AppPreview>
-                  <S.ScreenLabel>Gestão de pacientes</S.ScreenLabel>
-                </S.MainScreen>
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={patientsScreen}
+                      alt="Tela de gestão de pacientes da Helpsi com dados demonstrativos"
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Gestão de pacientes</span>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
               </S.CarouselSlide>
 
               <S.CarouselSlide
@@ -303,62 +240,17 @@ function Portfolio() {
                 inert={activeSlide !== 2 ? true : undefined}
                 aria-label="Tela de Agenda"
               >
-                <S.MainScreen>
-                  <S.AppPreview>
-                    <ProductSidebar active="agenda" />
-                    <S.PreviewContent>
-                      <T.PanelHeading>
-                        <div>
-                          <strong>Minha agenda</strong>
-                          <span>Administre sua agenda com seus pacientes ou compromissos pessoais.</span>
-                        </div>
-                        <T.PanelActions>
-                          <button type="button"><FaUserFriends /> Todos os pacientes</button>
-                          <button type="button"><FaPlus /> Adicionar</button>
-                        </T.PanelActions>
-                      </T.PanelHeading>
-
-                      <T.CalendarShell>
-                        <T.CalendarToolbar>
-                          <strong>Jul. — Ago. 2026</strong>
-                          <span><FaCalendarAlt /> Semana</span>
-                        </T.CalendarToolbar>
-                        <T.CalendarScroll>
-                          <T.CalendarDays>
-                            <span />
-                            {carouselWeekDays.map(([day, date]) => (
-                              <div key={day} className={day === 'QUA' ? 'active' : ''}>
-                                <small>{day}</small>
-                                <strong>{date}</strong>
-                              </div>
-                            ))}
-                          </T.CalendarDays>
-                          <T.Schedule>
-                            {carouselTimes.map((time) => (
-                              <T.ScheduleRow key={time}>
-                                <time>{time}</time>
-                                {carouselWeekDays.map(([day]) => <span key={`${time}-${day}`} />)}
-                              </T.ScheduleRow>
-                            ))}
-                            {carouselEvents.map((event) => (
-                              <T.ScheduleEvent
-                                key={`${event.name}-${event.time}`}
-                                $column={event.column}
-                                $row={event.row}
-                                $span={event.span}
-                                $tone={event.tone}
-                              >
-                                <strong>{event.name}</strong>
-                                <span>{event.time}</span>
-                              </T.ScheduleEvent>
-                            ))}
-                          </T.Schedule>
-                        </T.CalendarScroll>
-                      </T.CalendarShell>
-                    </S.PreviewContent>
-                  </S.AppPreview>
-                  <S.ScreenLabel>Agenda semanal</S.ScreenLabel>
-                </S.MainScreen>
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={agendaScreen}
+                      alt="Tela da agenda semanal da Helpsi com compromissos demonstrativos"
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Agenda semanal</span>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
               </S.CarouselSlide>
 
               <S.CarouselSlide
@@ -366,40 +258,17 @@ function Portfolio() {
                 inert={activeSlide !== 3 ? true : undefined}
                 aria-label="Tela de Jornada"
               >
-                <S.MainScreen>
-                  <S.AppPreview>
-                    <ProductSidebar active="journey" />
-                    <S.PreviewContent>
-                      <T.PanelHeading>
-                        <div>
-                          <strong>Jornada</strong>
-                          <span>Acompanhe a trajetória e os registros objetivos de cada paciente.</span>
-                        </div>
-                        <S.JourneyPatientSelect type="button">
-                          Selecione um paciente
-                          <FaChevronDown />
-                        </S.JourneyPatientSelect>
-                      </T.PanelHeading>
-
-                      <S.CarouselJourneyEmpty>
-                        <img src={brainThinking} alt="" />
-                        <strong>Escolha um paciente para começar</strong>
-                        <p>
-                          Você verá a evolução, os atendimentos e os principais marcos do
-                          acompanhamento.
-                        </p>
-                        <S.CarouselJourneyAlert>
-                          <FaRoute />
-                          <div>
-                            <strong>Use o campo acima para selecionar um paciente.</strong>
-                            <span>Você poderá trocar a seleção quando quiser.</span>
-                          </div>
-                        </S.CarouselJourneyAlert>
-                      </S.CarouselJourneyEmpty>
-                    </S.PreviewContent>
-                  </S.AppPreview>
-                  <S.ScreenLabel>Jornada do paciente</S.ScreenLabel>
-                </S.MainScreen>
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={journeyScreen}
+                      alt="Tela da Jornada da Helpsi aguardando a seleção de um paciente"
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Jornada do paciente</span>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
               </S.CarouselSlide>
 
               <S.CarouselSlide
@@ -407,67 +276,35 @@ function Portfolio() {
                 inert={activeSlide !== 4 ? true : undefined}
                 aria-label="Tela de Contas"
               >
-                <S.MainScreen>
-                  <S.AppPreview>
-                    <ProductSidebar active="accounts" />
-                    <S.PreviewContent>
-                      <T.PanelHeading>
-                        <div>
-                          <strong>Contas</strong>
-                          <span>Somente sessões com comparecimento registrado geram valores pendentes.</span>
-                        </div>
-                        <T.PanelActions>
-                          <button type="button" aria-label="Buscar"><FaSearch /></button>
-                          <button type="button"><FaCalendarAlt /> Jul. 2026</button>
-                        </T.PanelActions>
-                      </T.PanelHeading>
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={accountsScreen}
+                      alt="Tela de controle financeiro da Helpsi com valores demonstrativos"
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Controle financeiro</span>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
+              </S.CarouselSlide>
 
-                      <T.AccountSummary>
-                        <T.AccountMetric $tone="green">
-                          <FaWallet />
-                          <span>Recebido de sessões realizadas</span>
-                          <strong>R$ 4.840,00</strong>
-                        </T.AccountMetric>
-                        <T.AccountMetric $tone="yellow">
-                          <FaFileInvoiceDollar />
-                          <span>Pendente de sessões realizadas</span>
-                          <strong>R$ 760,00</strong>
-                        </T.AccountMetric>
-                        <T.AccountMetric $tone="purple">
-                          <FaWallet />
-                          <span>Valor total no mês</span>
-                          <strong>R$ 5.600,00</strong>
-                        </T.AccountMetric>
-                      </T.AccountSummary>
-
-                      <T.AccountTable>
-                        <T.AccountTableHead>
-                          <span>Paciente</span>
-                          <span>Valor da sessão</span>
-                          <span>Sessões</span>
-                          <span>Situação</span>
-                          <span />
-                        </T.AccountTableHead>
-                        {patientRecords.slice(0, 5).map((patient, index) => {
-                          const status = ['Parcial', 'Em aberto', 'Quitado', 'Quitado', 'Parcial'][index];
-                          return (
-                            <T.AccountRow key={patient.name}>
-                              <T.AccountPerson>
-                                <img src={patient.avatar} alt="" />
-                                <strong>{patient.name}</strong>
-                              </T.AccountPerson>
-                              <span>{patient.value}</span>
-                              <span>{index + 1}</span>
-                              <T.Status $status={status}>{status}</T.Status>
-                              <FaArrowRight />
-                            </T.AccountRow>
-                          );
-                        })}
-                      </T.AccountTable>
-                    </S.PreviewContent>
-                  </S.AppPreview>
-                  <S.ScreenLabel>Controle financeiro</S.ScreenLabel>
-                </S.MainScreen>
+              <S.CarouselSlide
+                aria-hidden={activeSlide !== 5}
+                inert={activeSlide !== 5 ? true : undefined}
+                aria-label="Tela Saúde da Clínica com leitura da Brain"
+              >
+                <S.ScreenshotScreen>
+                  <S.ScreenshotStage>
+                    <S.ScreenshotImage
+                      src={clinicHealthScreen}
+                      alt="Relatório Saúde da Clínica com indicadores e leitura da Brain usando dados demonstrativos"
+                    />
+                  </S.ScreenshotStage>
+                  <S.ScreenshotFooter>
+                    <span>Saúde da clínica e leitura da Brain</span>
+                  </S.ScreenshotFooter>
+                </S.ScreenshotScreen>
               </S.CarouselSlide>
             </S.CarouselTrack>
           </S.CarouselViewport>
@@ -502,8 +339,8 @@ function Portfolio() {
         </S.Carousel>
 
         <S.FictionalNote>
-          Personagens e informações demonstrativas criados para apresentar a
-          experiência da plataforma.
+          Capturas da plataforma com personagens e informações demonstrativas
+          para preservar a privacidade.
         </S.FictionalNote>
       </S.ProductStory>
     </S.Section>

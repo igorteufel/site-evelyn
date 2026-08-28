@@ -1,19 +1,30 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
+  position: relative;
+  isolation: isolate;
   width: calc(100% + 64px);
   margin-left: -32px;
   padding: 76px 64px;
   color: ${({ theme }) => theme.colors.text};
-  background: #f9f5ff;
-  border-radius: 24px;
   scroll-margin-top: 100px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: ${({ theme }) => theme.colors.brand[50]};
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: calc(100% + 32px);
     margin-left: -16px;
     padding: 56px 24px;
-    border-radius: 18px;
   }
 `;
 
@@ -32,31 +43,31 @@ export const Header = styled.div`
 export const Kicker = styled.p`
   grid-column: 1 / -1;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 12px;
-  font-weight: 800;
+  font-size: ${({ theme }) => theme.typography.sizes.label};
+  font-weight: ${({ theme }) => theme.typography.weights.black};
   text-transform: uppercase;
   letter-spacing: 0.09em;
   margin: 0;
 `;
 
 export const Title = styled.h2`
-  font-size: clamp(34px, 4vw, 52px);
+  font-size: ${({ theme }) => theme.typography.sizes.section};
   line-height: 1.08;
-  font-weight: 800;
+  font-weight: ${({ theme }) => theme.typography.weights.black};
   letter-spacing: -0.035em;
   margin: 0;
 `;
 
 export const Subtitle = styled.p`
   color: ${({ theme }) => theme.colors.muted};
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.typography.sizes.bodyLarge};
   line-height: 1.65;
   margin: 0;
 `;
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   gap: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -70,32 +81,40 @@ export const Grid = styled.div`
 
 export const Card = styled.article`
   min-height: 268px;
-  grid-column: span 2;
+  grid-column: span 3;
   padding: 26px;
-  border-radius: 14px;
-  background: #ffffff;
+  border-radius: ${({ theme }) => theme.radii.md};
+  background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
   display: flex;
   flex-direction: column;
-  border: 1px solid #e4e4e9;
-  box-shadow: 0 14px 36px rgba(54, 15, 94, 0.05);
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadows.soft};
   transition: transform 0.25s ease, border-color 0.25s ease;
-
-  &:nth-child(4),
-  &:nth-child(5) {
-    grid-column: span 3;
-  }
 
   &:hover {
     transform: translateY(-5px);
-    border-color: #d4b7fb;
+    border-color: ${({ theme }) => theme.colors.brand[200]};
+  }
+
+  &:nth-child(n + 5) {
+    grid-column: span 4;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-column: span 1;
 
-    &:nth-child(4),
-    &:nth-child(5) {
+    &:nth-child(n + 5) {
+      grid-column: span 1;
+    }
+
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    &:last-child {
       grid-column: span 1;
     }
   }
@@ -121,14 +140,15 @@ export const CardIcon = styled.span`
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 17px;
+  font-size: ${({ theme }) => theme.typography.sizes.cardTitle};
+  font-weight: ${({ theme }) => theme.typography.weights.bold};
   margin: auto 0 10px;
 `;
 
 export const CardText = styled.p`
   color: ${({ theme }) => theme.colors.muted};
   line-height: 1.6;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.typography.sizes.body};
   margin: 0;
 `;
 
@@ -136,7 +156,7 @@ export const ProductStory = styled.div`
   margin-top: 64px;
   padding: 40px;
   border-radius: 24px;
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
   border: 1px solid rgba(136, 60, 236, 0.12);
   box-shadow: 0 28px 70px rgba(66, 36, 104, 0.08);
 
@@ -173,7 +193,8 @@ export const ProductStoryTitle = styled.h2`
   max-width: 720px;
   margin: 0;
   color: ${({ theme }) => theme.colors.text};
-  font-size: clamp(30px, 3.5vw, 46px);
+  font-size: ${({ theme }) => theme.typography.sizes.section};
+  font-weight: ${({ theme }) => theme.typography.weights.black};
   line-height: 1.08;
   letter-spacing: -0.035em;
 `;
@@ -181,7 +202,7 @@ export const ProductStoryTitle = styled.h2`
 export const ProductStoryText = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.muted};
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.typography.sizes.bodyLarge};
   line-height: 1.65;
 `;
 
@@ -381,6 +402,98 @@ export const MainScreen = styled.figure`
   background: #f8f7fa;
   border: 1px solid #ded9e7;
   box-shadow: 0 22px 54px rgba(46, 25, 72, 0.12);
+`;
+
+export const ScreenshotScreen = styled.figure`
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #ded9e7;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 22px 54px rgba(46, 25, 72, 0.12);
+`;
+
+export const ScreenshotStage = styled.div`
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(136, 60, 236, 0.035), transparent 42%),
+    #f8f7fa;
+`;
+
+export const ScreenshotImage = styled.img`
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+`;
+
+export const ScreenshotFooter = styled.figcaption`
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 7px 14px;
+  border-top: 1px solid #e7e3eb;
+  color: #817989;
+  background: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    min-height: 52px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+`;
+
+export const HomeViewToggle = styled.div`
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #f1edf5;
+
+  button {
+    min-height: 26px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 999px;
+    color: #77717e;
+    background: transparent;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: none;
+  }
+
+  button.active {
+    color: #ffffff;
+    background: ${({ theme }) => theme.colors.primary};
+  }
+
+  button:focus-visible {
+    outline: 2px solid #c7a2f5;
+    outline-offset: 2px;
+  }
 `;
 
 export const BrowserBar = styled.div`

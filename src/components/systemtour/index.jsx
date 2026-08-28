@@ -281,7 +281,7 @@ function AgendaPanel() {
 
       <S.CalendarShell>
         <S.CalendarToolbar>
-          <strong>Jul. — Ago. 2026</strong>
+          <strong>Jul. a ago. de 2026</strong>
           <span><FaCalendarAlt /> Semana</span>
         </S.CalendarToolbar>
         <S.CalendarScroll>
@@ -455,7 +455,7 @@ export default function SystemTour() {
           <S.Title id="system-tour-title">Mais do sistema. Menos promessa.</S.Title>
         </div>
         <S.Subtitle>
-          Explore algumas das telas que conectam a rotina do consultório — com
+          Explore algumas das telas que conectam a rotina do consultório, com
           personagens e informações totalmente fictícios.
         </S.Subtitle>
       </S.Intro>

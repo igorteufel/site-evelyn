@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LandingPage = styled.div`
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.surface};
   min-height: 100vh;
   width: 100%;
   padding: 0 56px 40px;
@@ -26,24 +26,30 @@ export const LandingPage = styled.div`
 export const LandingPageContainer = styled.div`
   width: 100%;
   height: 100%;
-  max-width: 1320px;
+  max-width: ${({ theme }) => theme.layout.contentMax};
   margin: 0 auto;
   display: flex;
   align-items: stretch;
   flex-direction: column;
   gap: 0;
 
-  > section + section,
-  > section + footer {
-    margin-top: 112px;
-  }
+`;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    > section + section,
-    > section + footer {
-      margin-top: 80px;
-    }
-  }
+export const Progress = styled.div`
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    ${({ theme }) => theme.colors.brand[300]},
+    ${({ theme }) => theme.colors.primary} 58%,
+    ${({ theme }) => theme.colors.onBrand}
+  );
+  pointer-events: none;
 `;
 
 export const BackToTopButton = styled.button`
