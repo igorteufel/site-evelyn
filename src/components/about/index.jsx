@@ -5,9 +5,9 @@ import evelynProfile from '../../assets/brand/evelyn-profile-v2.png';
 import * as S from './styles';
 
 const principles = [
-  { icon: FaRegHeart, title: 'Acolhimento sem julgamento', text: 'Um encontro em que você pode trazer o que sente no seu próprio ritmo.' },
-  { icon: FaRegUser, title: 'Cuidado singular', text: 'Conduzo cada acompanhamento considerando sua história, seu contexto e o momento que você está vivendo.' },
-  { icon: FaRegLightbulb, title: 'Clareza para novos caminhos', text: 'Juntos, damos nome ao que pesa e ampliamos as possibilidades de escolha.' },
+  { icon: FaRegHeart, title: 'ESCUTAR', text: 'Dar lugar àquilo que muitas vezes não encontra espaço para ser dito.' },
+  { icon: FaRegUser, title: 'ENCONTRAR', text: 'A análise se constrói no encontro entre duas pessoas, em um espaço compartilhado de confiança e escuta.' },
+  { icon: FaRegLightbulb, title: 'SUSTENTAR', text: 'Nem tudo precisa ser compreendido de imediato. Algumas experiências precisam primeiro ser sustentadas.' },
 ];
 
 export default function About() {
@@ -20,12 +20,12 @@ export default function About() {
           <S.Title id="about-title">Prazer, eu sou Evelyn.</S.Title>
           <S.Profile>
             <img src={evelynProfile} alt="Evelyn Peneluppi" />
-            <div><strong>Evelyn Peneluppi</strong><span>Psicóloga · Psicanálise</span></div>
+            <div><strong>Evelyn Peneluppi</strong><span>Psicóloga · Psicanalista</span></div>
           </S.Profile>
         </motion.div>
         <motion.div {...state} variants={reveal}>
-          <S.Text>Meu trabalho, orientado pela psicanálise, parte de uma escuta atenta, ética e humana. Na terapia, você não precisa chegar com respostas prontas — nosso ponto de partida é aquilo que hoje pede espaço.</S.Text>
-          <S.Text>Acredito em um processo construído com presença e respeito, capaz de ajudar você a compreender sua história sem se reduzir a ela.</S.Text>
+          <S.Text>Meu trabalho, orientado pela psicanálise, parte da escuta e do encontro. Na terapia, você não precisa chegar com respostas prontas, nosso ponto de partida é aquilo que hoje pede espaço.</S.Text>
+          <S.Text>Acredito na clínica como um espaço construído a dois: um lugar de confiança e sustentação, onde aquilo que é dito e também aquilo que ainda não encontrou palavras pode ser escutado, pensado e elaborado.</S.Text>
         </motion.div>
       </S.Intro>
       <S.Principles as={motion.div} {...state} variants={stagger}>

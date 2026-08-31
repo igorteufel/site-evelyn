@@ -55,8 +55,9 @@ export const ImageFrame = styled.div`
 `;
 export const Note = styled.div`
   position: absolute; right: 0; bottom: 0; width: 164px; min-height: 164px; padding: ${({ theme }) => theme.spacing[5]}; display: flex; flex-direction: column; justify-content: space-between;
-  border: 1px solid rgba(255,255,255,.28); border-radius: ${({ theme }) => theme.radii.lg}; color: ${({ theme }) => theme.colors.onBrand}; background: rgba(32, 55, 41, .78); box-shadow: ${({ theme }) => theme.shadows.raised}; backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(255,255,255,.28); border-radius: ${({ theme }) => theme.radii.lg}; color: ${({ theme }) => theme.colors.onBrand}; background: rgba(32, 55, 41, .78); box-shadow: ${({ theme }) => theme.shadows.raised}; backdrop-filter: blur(18px) saturate(135%); animation: ${drift} 7.2s ease-in-out -2.2s infinite;
   span { color: ${({ theme }) => theme.colors.brand[200]}; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; } p { margin: 0; font-size: 19px; font-weight: 900; line-height: 1.12; }
+  @media (prefers-reduced-motion: reduce) { animation: none; }
 `;
 export const GlassMessage = styled.div`
   position: absolute; z-index: 2; left: -40px; bottom: 72px; min-width: 220px; min-height: 84px; padding: ${({ theme }) => theme.spacing[4]}; display: flex; align-items: center; gap: ${({ theme }) => theme.spacing[3]};

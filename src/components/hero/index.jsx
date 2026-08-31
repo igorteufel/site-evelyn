@@ -18,8 +18,8 @@ export default function Hero() {
       <S.Inner>
         <MotionCopy {...revealState} variants={stagger}>
           <motion.p variants={reveal} className="eyebrow">Psicologia clínica · Psicanálise</motion.p>
-          <motion.h1 variants={revealMask}>Um espaço seguro para você <em>se ouvir</em> com mais clareza.</motion.h1>
-          <motion.p variants={reveal} className="lead">Na psicoterapia, acompanho você a compreender o que sente, reconhecer padrões e construir caminhos mais possíveis para a sua vida.</motion.p>
+          <motion.h1 variants={revealMask}>Um espaço para que aquilo que ainda não pôde ser pensado possa começar a <em>existir em palavras.</em></motion.h1>
+          <motion.p variants={reveal} className="lead">A análise acontece no espaço que construímos juntos.</motion.p>
           <motion.div variants={reveal} className="actions">
             <S.PrimaryAction href={WHATSAPP_URL} target="_blank" rel="noreferrer"><FaWhatsapp aria-hidden="true" /> Agendar uma conversa</S.PrimaryAction>
             <S.SecondaryAction href="#sobre">Conhecer meu trabalho</S.SecondaryAction>
@@ -32,7 +32,7 @@ export default function Hero() {
             <FaRegHeart aria-hidden="true" />
             <div><span>Um encontro por vez</span><strong>Escuta sem pressa.</strong></div>
           </S.GlassMessage>
-          <S.Note><span>Psicóloga · Psicanálise</span><p>Evelyn<br />Peneluppi</p></S.Note>
+          <S.Note><span>Psicóloga · Psicanalista</span><p>Evelyn<br />Peneluppi</p></S.Note>
         </MotionVisual>
       </S.Inner>
       <S.ScrollLink href="#sobre">Conheça esta proposta <FaArrowDown aria-hidden="true" /></S.ScrollLink>

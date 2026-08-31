@@ -12,7 +12,7 @@ import * as S from './styles';
 
 const posts = [
   { id: 'Dcjqz0QJ6nx', path: 'reel', image: postOne, label: 'Reflexões em vídeo', alt: 'Evelyn sorrindo e apontando para a câmera' },
-  { id: 'DchDJz_pBgj', path: 'reel', image: postTwo, label: 'Conversas sobre o cansaço', alt: 'Evelyn sorrindo em frente a uma estante' },
+  { id: 'DchDJz_pBgj', path: 'reel', image: postTwo, label: 'Provocações do cotidiano', alt: 'Evelyn sorrindo em frente a uma estante' },
   { id: 'DcYr1VOxInE', path: 'p', image: postThree, label: 'Pare, olhe, escute', alt: 'Placa ferroviária com a mensagem Pare, olhe, escute' },
   { id: 'DK-aKj1B1Sk', path: 'reel', image: postFour, label: 'A terapia é um trabalho a dois', alt: 'Evelyn e outra mulher sorrindo diante de um bolo' },
   { id: 'DbmLrqZp5cX', path: 'reel', image: postFive, label: 'O amor mora na falta', alt: 'Pintura de uma porta com a frase O amor mora na falta' },
