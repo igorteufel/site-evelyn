@@ -1,101 +1,42 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
-  position: sticky;
-  top: 0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  z-index: 1000;
-  background: rgba(35, 10, 72, 0.88);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  backdrop-filter: blur(12px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+export const Header = styled.header`
+  position: fixed; inset: 0 0 auto; z-index: 1000;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  background: rgba(251, 248, 242, 0.92); backdrop-filter: blur(18px);
 `;
-
-export const HeaderContent = styled.div`
-  width: 100%;
-  max-width: ${({ theme }) => theme.layout.wideMax};
-  margin: 0 auto;
-  min-height: 74px;
-  padding: 12px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 14px 16px;
-    align-items: flex-start;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
+export const Inner = styled.div`
+  width: min(calc(100% - 48px), ${({ theme }) => theme.layout.wideMax}); min-height: ${({ theme }) => theme.layout.headerHeight};
+  margin: 0 auto; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: ${({ theme }) => theme.spacing[8]};
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) { width: min(calc(100% - 32px), ${({ theme }) => theme.layout.wideMax}); gap: ${({ theme }) => theme.spacing[4]}; }
 `;
-
 export const Brand = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: ${({ theme }) => theme.colors.text};
-  text-decoration: none;
-  padding: 4px 0;
+  display: inline-flex; align-items: baseline; gap: ${({ theme }) => theme.spacing[2]}; color: ${({ theme }) => theme.colors.nature[900]}; text-decoration: none;
+  strong { font-size: 22px; font-weight: ${({ theme }) => theme.typography.weights.black}; letter-spacing: -0.055em; }
+  span { color: ${({ theme }) => theme.colors.primary}; font-size: 9px; }
 `;
-
-export const BrandLogo = styled.img`
-  display: block;
-  width: 118px;
-  height: auto;
-  filter: brightness(0) invert(1);
-`;
-
 export const Nav = styled.nav`
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-
+  display: flex; justify-content: center; gap: ${({ theme }) => theme.spacing[6]};
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 4px 2px;
+    position: absolute; top: calc(100% + 1px); left: 16px; right: 16px; display: ${({ $open }) => ($open ? 'flex' : 'none')};
+    flex-direction: column; gap: 0; padding: ${({ theme }) => theme.spacing[3]}; border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radii.md}; background: ${({ theme }) => theme.colors.surface}; box-shadow: ${({ theme }) => theme.shadows.overlay};
   }
 `;
-
 export const NavLink = styled.a`
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 8px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.onBrand};
-  }
+  min-height: 44px; display: inline-flex; align-items: center; color: ${({ theme }) => theme.colors.muted}; font-size: 14px;
+  font-weight: ${({ theme }) => theme.typography.weights.bold}; text-decoration: none; transition: color ${({ theme }) => theme.motion.fast} ${({ theme }) => theme.motion.ease};
+  &:hover { color: ${({ theme }) => theme.colors.primary}; }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) { padding: 0 ${({ theme }) => theme.spacing[3]}; color: ${({ theme }) => theme.colors.text}; border-radius: ${({ theme }) => theme.radii.sm}; &:hover { color: ${({ theme }) => theme.colors.primary}; background: ${({ theme }) => theme.colors.brand[50]}; } }
 `;
-
-export const HeaderCta = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 18px;
-  border-radius: ${({ theme }) => theme.radii.round};
-  background: ${({ theme }) => theme.colors.onBrand};
-  color: ${({ theme }) => theme.colors.primary};
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 800;
-  white-space: nowrap;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    background: ${({ theme }) => theme.colors.brand[100]};
-  }
+export const Cta = styled.a`
+  min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: ${({ theme }) => theme.spacing[2]}; padding: 0 ${({ theme }) => theme.spacing[5]};
+  border-radius: ${({ theme }) => theme.radii.round}; color: ${({ theme }) => theme.colors.onBrand}; background: ${({ theme }) => theme.colors.primary};
+  font-size: 13px; font-weight: ${({ theme }) => theme.typography.weights.black}; text-decoration: none; transition: transform ${({ theme }) => theme.motion.fast} ${({ theme }) => theme.motion.ease};
+  &:hover { transform: translateY(-2px); }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { padding-inline: ${({ theme }) => theme.spacing[4]}; font-size: 0; svg { font-size: 17px; } }
+`;
+export const MenuButton = styled.button`
+  display: none; width: 44px; height: 44px; border: 0; border-radius: ${({ theme }) => theme.radii.round}; color: ${({ theme }) => theme.colors.nature[900]}; background: ${({ theme }) => theme.colors.nature[50]}; cursor: pointer;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) { display: inline-flex; align-items: center; justify-content: center; justify-self: end; }
 `;

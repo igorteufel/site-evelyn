@@ -1,16 +1,13 @@
-# Fundamentos do Design System Helpsi
+# Fundamentos do Design System Evelyn Psicologia
 
-Contrato visual compartilhado pelo site institucional e pelo sistema Helpsi.
-Este documento é agnóstico de tecnologia; cada repositório deve espelhar estes
-valores em sua própria camada de tokens.
+Contrato visual da landing page `psipeneluppi`, da psicóloga Evelyn Peneluppi.
 
 ## Direção
 
-- **Propósito:** transmitir segurança operacional sem perder acolhimento humano.
-- **Público:** profissionais de saúde mental que valorizam clareza, privacidade e
-  tempo para cuidar.
-- **Expressão:** clínica, calma e editorial.
-- **Assinaturas:** roxo Helpsi, mascote Brain, Lato e imagens reais do produto.
+- **Propósito:** transmitir segurança, ética e acolhimento para quem considera iniciar terapia.
+- **Público:** pessoas buscando um primeiro contato claro e humano com a psicoterapia.
+- **Expressão:** clínica, quente e editorial.
+- **Assinaturas:** laranja queimado, verde-floresta, Lato, fotografia humana e blocos amplos.
 
 ## Cores
 
@@ -18,30 +15,42 @@ valores em sua própria camada de tokens.
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `brand.50` | `#F9F5FF` | Fundo roxo muito sutil |
-| `brand.100` | `#EDE1FE` | Fundo de ícone e seleção |
-| `brand.200` | `#D4B7FB` | Borda e destaque suave |
-| `brand.300` | `#B994EE` | Elemento decorativo |
-| `brand.500` | `#883CEC` | Marca e ação principal |
-| `brand.600` | `#7C2CE1` | Destaque sobre fundo escuro |
-| `brand.700` | `#6E18DE` | Hover da ação principal |
-| `brand.900` | `#25133E` | Texto sobre superfície roxa clara |
-| `brand.950` | `#22113F` | Fundo institucional escuro |
+| `brand.50` | `#FFF7EF` | Fundo laranja muito sutil |
+| `brand.100` | `#FDE7D5` | Fundo de ícone e seleção |
+| `brand.200` | `#F8C8A4` | Borda e destaque suave |
+| `brand.300` | `#EE9B63` | Elemento decorativo |
+| `brand.500` | `#D86932` | Assinatura Evelyn |
+| `brand.600` | `#C45728` | Destaque sobre fundo claro |
+| `brand.700` | `#A9431F` | Ação principal e foco |
+| `brand.900` | `#60301F` | Texto sobre superfície laranja clara |
+| `brand.950` | `#30231D` | Superfície quente escura |
+
+### Natureza
+
+| Token | Valor | Uso |
+| --- | --- | --- |
+| `nature.50` | `#F2F6F0` | Fundo verde muito sutil |
+| `nature.100` | `#DEE9D9` | Destaque suave |
+| `nature.200` | `#B9CFAE` | Borda editorial |
+| `nature.500` | `#527057` | Elemento de apoio |
+| `nature.600` | `#426047` | Destaque institucional |
+| `nature.700` | `#344E3A` | Contraste e CTA secundário |
+| `nature.900` | `#203729` | Fundo editorial escuro |
+| `nature.950` | `#182B20` | Fundo institucional profundo |
 
 ### Neutros
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `neutral.0` | `#FFFFFF` | Superfície principal e conteúdo sobre roxo |
-| `neutral.50` | `#FCFCFC` | Fundo da aplicação |
-| `neutral.100` | `#F4F4F7` | Fundo secundário |
-| `neutral.200` | `#E4E4E9` | Bordas e divisores |
-| `neutral.500` | `#8A8492` | Texto auxiliar de baixo destaque |
-| `neutral.600` | `#6B6D76` | Texto secundário |
-| `neutral.900` | `#202224` | Texto principal |
+| `neutral.0` | `#FFFDF9` | Superfície principal e conteúdo sobre fundos escuros |
+| `neutral.50` | `#FBF8F2` | Fundo da aplicação |
+| `neutral.100` | `#F3EEE5` | Fundo secundário |
+| `neutral.200` | `#E4DACE` | Bordas e divisores |
+| `neutral.500` | `#8C7F74` | Texto auxiliar de baixo destaque |
+| `neutral.600` | `#695F57` | Texto secundário |
+| `neutral.900` | `#2E2925` | Texto principal |
 
-`ink` (`#151E36`) é a superfície escura neutra usada em mídia e experiências
-imersivas; não substitui o roxo institucional de marca.
+`ink` usa `nature.950` e serve como superfície institucional escura.
 
 ### Estados
 
@@ -104,7 +113,7 @@ Escala baseada em 4 px:
 - Borda padrão: 1 px usando `neutral.200`.
 - Sombras devem indicar elevação, não decoração. Usar `soft`, `raised` ou
   `overlay` definidos em `src/styles/theme.js`.
-- Foco: contorno roxo de 2 px com offset de 3 px; nunca remover sem substituição.
+- Foco: contorno laranja escuro de 2 px com offset de 3 px; nunca remover sem substituição.
 
 ## Layout e responsividade
 
@@ -131,6 +140,3 @@ No site, os tokens vivem em:
 - `src/styles/breakpoints.js`: breakpoints;
 - `src/styles/motion.js`: variantes do Framer Motion;
 - `src/styles/global-styles.js`: reset, base tipográfica e foco.
-
-O sistema Helpsi deve manter os mesmos nomes semânticos e valores, mesmo que use
-outra tecnologia de estilos.

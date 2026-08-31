@@ -1,105 +1,75 @@
-# Catálogo do Design System — Site Helpsi
+# Catálogo do Design System — psipeneluppi
 
-Inventário dos componentes e padrões reais do site institucional. Consulte os
-fundamentos e as regras antes de criar uma nova variação.
+Inventário das seções e padrões da landing page pessoal. Consulte os fundamentos e as regras antes de criar uma variação.
 
 ## Estrutura global
 
 ### Landingpage
 
 - **Arquivo:** `src/pages/landingpage.jsx`
-- **Responsabilidade:** compor a narrativa completa e controlar progresso e
-  retorno ao topo.
-- **Ordem:** Header → Hero → About → Editorial → Works → Portfolio → Experience →
-  Footer.
-- **Padrões:** largura máxima de 1320 px, seções full-bleed quando necessário e
-  botão de retorno exibido após 300 px.
+- **Responsabilidade:** compor a narrativa e controlar progresso e retorno ao topo.
+- **Ordem:** Header → Hero → About → Instagram → Editorial → Works → Portfolio → Experience → Footer.
+- **Padrões:** largura máxima de 1320 px, seções full-bleed quando necessário e cabeçalho fixo.
 
 ### Header
 
 - **Arquivo:** `src/components/header/index.jsx`
-- **Responsabilidade:** marca, navegação por âncoras e CTA externo.
+- **Responsabilidade:** assinatura `psipeneluppi`, navegação por âncoras, menu mobile e CTA para WhatsApp.
 - **Props:** nenhuma.
-- **Âncoras:** `inicio`, `plataforma`, `visao`, `rotina`, `funcionalidades`,
-  `experiencia` e `contato`.
-- **Responsividade:** navegação horizontal rolável abaixo de 768 px.
+- **Âncoras:** `inicio`, `sobre`, `conteudos`, `acolhimento`, `processo`, `duvidas` e `contato`.
 
 ## Seções editoriais
 
 ### Hero
 
-- **Arquivo:** `src/components/hero/index.jsx`
-- **Responsabilidade:** proposta de valor, CTAs e apresentação de telas reais.
-- **Props:** nenhuma.
-- **Interações:** rotação automática de telas, pausa por visibilidade e respeito a
-  movimento reduzido.
-- **Assets:** fundo oficial e capturas em `src/assets/screens`.
+- **Responsabilidade:** apresentar a proposta de cuidado, CTA principal e retrato profissional da Evelyn.
+- **Asset principal:** `src/assets/brand/evelyn-hero.jpg`, preparado em proporção 4:5 para desktop e mobile.
+- **Efeitos:** halo de cor, textura de pontos e dois overlays glass vinculados ao retrato; movimento desativado com preferência reduzida.
+- **Interações:** entradas sutis e links para WhatsApp e seção Sobre.
 
 ### About
 
-- **Arquivo:** `src/components/about/index.jsx`
-- **Responsabilidade:** explicar a plataforma por benefícios e métricas.
-- **Padrões reutilizáveis:** `SectionIntro`, grade de highlights e faixa de
-  métricas.
+- **Responsabilidade:** apresentar Evelyn, sua orientação pela psicanálise e os três princípios da prática: acolhimento, singularidade e clareza.
 
 ### Editorial
 
-- **Arquivo:** `src/components/editorial/index.jsx`
-- **Responsabilidade:** posicionar a Brain como conexão entre visão clínica e
-  gestão.
-- **Padrões reutilizáveis:** seção roxa full-bleed, painéis contrastantes e
-  marquee decorativo.
+- **Responsabilidade:** criar uma pausa narrativa com mensagem sobre prevenção e autocuidado.
+- **Composição:** painel glass de leitura, retrato humano da Evelyn e selo sobre o atendimento online pelo Google Meet.
+
+### Instagram
+
+- **Arquivo:** `src/components/instagram/index.jsx`.
+- **Responsabilidade:** aproximar a visitante da presença e do repertório da Evelyn por meio de cinco publicações reais.
+- **Interações:** faixa com card central e prévias laterais; cada card abre o post correspondente no Instagram, com navegação adicional por setas, dots, teclado e gesto horizontal.
+- **Efeitos:** fundo em gradiente editorial, invólucro translúcido e legendas glass sobre as imagens.
+- **Acessibilidade:** controles nomeados, contador anunciado e respeito a movimento reduzido.
 
 ### Works
 
-- **Arquivo:** `src/components/works/index.jsx`
-- **Responsabilidade:** comparação antes/depois e diferenciais da plataforma.
-- **Padrões reutilizáveis:** comparação semântica, lista de diferenciais e preview
-  do produto.
+- **Responsabilidade:** mostrar temas que podem ser acolhidos em terapia sem transformar a seção em diagnóstico.
+- **Composição:** três cards editoriais com fotografia natural, agrupando os seis temas em pares relacionados.
 
 ### Portfolio
 
-- **Arquivo:** `src/components/portfolio/index.jsx`
-- **Responsabilidade:** catálogo de funcionalidades e carrossel de telas reais.
-- **Interações:** anterior, próximo, dots, autoplay e alternância da tela Home.
-- **Acessibilidade:** controles nomeados, `aria-current`, `aria-pressed` e slides
-  inativos marcados com `aria-hidden`.
+- **Responsabilidade:** explicar o início do acompanhamento em três passos.
+- **Composição:** fotografia ampla de atendimento online ao lado de uma lista numerada com os três passos.
 
 ### Experience
 
-- **Arquivo:** `src/components/experience/index.jsx`
-- **Responsabilidade:** vídeo da Brain e princípios da experiência Helpsi.
-- **Interações:** reprodução/pausa com botão acessível.
-- **Assets:** vídeo e poster em `src/assets/video`.
+- **Responsabilidade:** responder dúvidas frequentes com elementos `details` nativos e acessíveis.
 
 ### Footer
 
-- **Arquivo:** `src/components/footer/index.jsx`
-- **Responsabilidade:** CTA final para demonstração via WhatsApp ou e-mail.
-- **Props:** nenhuma.
-- **Padrão:** imagem real com overlay escuro para legibilidade.
+- **Responsabilidade:** CTA final para WhatsApp, identidade, retorno ao topo e aviso sobre emergências.
 
-## Primitivos compartilhados
+## Padrões compartilhados
 
-O site ainda não possui uma biblioteca independente de `Button`, `Card` ou
-`SectionHeader`. Antes de criar novos primitivos, verificar se há pelo menos dois
-usos reais que justifiquem a abstração. Até lá, manter a API visual alinhada pelos
-tokens do tema.
-
-Padrões que devem permanecer consistentes:
-
-- kicker: label roxa, caixa alta e peso 900;
-- título de seção: `typography.sizes.section` ou `display`;
-- texto editorial: `bodyLarge`, cor `muted`, altura de linha entre 1.5 e 1.65;
-- CTA principal: fundo de alto contraste, foco visível e altura mínima de 44 px;
+- kicker: label laranja, caixa alta e peso 900;
+- título editorial: tokens `section`, `display` ou `subheading`;
+- texto: `bodyLarge` ou `body`, cor `muted` e altura de linha entre 1.5 e 1.7;
+- CTA principal: contraste alto, foco visível e altura mínima de 44 px;
 - cards: superfície clara, borda neutra e uma única elevação;
-- seções: âncora com `scroll-margin-top` compatível com o header sticky.
-
-## Componentes não utilizados
-
-`certify`, `insta` e `systemtour` existem em `src/components`, mas não são
-renderizados por `Landingpage`. São legados e não devem servir como referência
-para trabalho novo sem antes serem reavaliados ou reativados explicitamente.
+- seções: `scroll-margin-top` compatível com o header fixo.
 
 ## Onde alterar o sistema
 

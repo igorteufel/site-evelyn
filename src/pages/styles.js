@@ -3,23 +3,22 @@ import styled from 'styled-components';
 export const LandingPage = styled.div`
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.surface};
+  background: ${({ theme }) => theme.colors.background};
   min-height: 100vh;
   width: 100%;
-  padding: 0 56px 40px;
-  overflow-x: clip;
+  padding: 0 56px;
   box-sizing: border-box;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: 0 32px 32px;
+    padding: 0 32px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 0 24px 24px;
+    padding: 0 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    padding: 0 16px 16px;
+    padding: 0 16px;
   }
 `;
 
@@ -32,6 +31,7 @@ export const LandingPageContainer = styled.div`
   align-items: stretch;
   flex-direction: column;
   gap: 0;
+  padding-top: ${({ theme }) => theme.layout.headerHeight};
 
 `;
 
@@ -45,9 +45,8 @@ export const Progress = styled.div`
   transform-origin: left center;
   background: linear-gradient(
     90deg,
-    ${({ theme }) => theme.colors.brand[300]},
-    ${({ theme }) => theme.colors.primary} 58%,
-    ${({ theme }) => theme.colors.onBrand}
+    ${({ theme }) => theme.colors.brand[200]},
+    ${({ theme }) => theme.colors.primary}
   );
   pointer-events: none;
 `;
@@ -61,18 +60,27 @@ export const BackToTopButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.nature[700]};
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: white;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 16px 40px rgba(136, 60, 236, 0.24);
+  box-shadow: ${({ theme }) => theme.shadows.raised};
   z-index: 1000;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
-    background: ${({ theme }) => theme.colors.primaryHover};
+    background: ${({ theme }) => theme.colors.primary};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;

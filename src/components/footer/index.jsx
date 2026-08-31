@@ -1,34 +1,25 @@
-import { FaWhatsapp } from 'react-icons/fa';
-import demoBackground from '../../assets/brand/demo-consulting-room.png';
+import { FaArrowUp, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { INSTAGRAM_URL, WHATSAPP_URL } from '../../content/site';
 import * as S from './styles';
 
 export default function Footer() {
   return (
-    <S.Section id="contato">
-      <S.Container $background={demoBackground}>
-        <S.Kicker>Comece com calma</S.Kicker>
-        <S.Title>Mais tempo para cuidar. Mais clareza para decidir.</S.Title>
-
-        <S.Subtitle>
-          Em uma conversa leve, mostramos como a Helpsi pode se encaixar na
-          rotina da sua clínica.
-        </S.Subtitle>
-
-        <S.Actions>
-          <S.PrimaryAction
-            href="https://wa.me/5512988194507?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20demonstra%C3%A7%C3%A3o%20da%20Helpsi"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaWhatsapp />
-            Solicitar demonstração
-          </S.PrimaryAction>
-
-          <S.SecondaryAction href="mailto:contato@helpsi.com.br">
-            contato@helpsi.com.br
-          </S.SecondaryAction>
-        </S.Actions>
-      </S.Container>
-    </S.Section>
+    <S.Footer id="contato">
+      <S.CtaPanel>
+        <S.Kicker>Vamos conversar?</S.Kicker>
+        <S.Title>Talvez este seja o momento de olhar para você com mais cuidado.</S.Title>
+        <S.Text>Você pode me enviar uma mensagem para consultar minha disponibilidade e entender os próximos passos, sem compromisso.</S.Text>
+        <S.Action href={WHATSAPP_URL} target="_blank" rel="noreferrer"><FaWhatsapp aria-hidden="true" /> Falar comigo pelo WhatsApp</S.Action>
+      </S.CtaPanel>
+      <S.Bottom>
+        <S.Brand><strong>psipeneluppi</strong><span>●</span></S.Brand>
+        <p>© {new Date().getFullYear()} psipeneluppi. Todos os direitos reservados.</p>
+        <S.Socials>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da Evelyn"><FaInstagram aria-hidden="true" /></a>
+          <a href="#inicio" aria-label="Voltar ao início"><FaArrowUp aria-hidden="true" /></a>
+        </S.Socials>
+      </S.Bottom>
+      <S.Notice>Este site não oferece atendimento emergencial. Em situação de risco imediato, procure um serviço de emergência da sua região.</S.Notice>
+    </S.Footer>
   );
 }

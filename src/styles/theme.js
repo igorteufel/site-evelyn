@@ -1,25 +1,36 @@
 import { breakpoints } from './breakpoints';
 
 const brand = {
-  50: '#F9F5FF',
-  100: '#EDE1FE',
-  200: '#D4B7FB',
-  300: '#B994EE',
-  500: '#883CEC',
-  600: '#7C2CE1',
-  700: '#6E18DE',
-  900: '#25133E',
-  950: '#22113F',
+  50: '#FFF7EF',
+  100: '#FDE7D5',
+  200: '#F8C8A4',
+  300: '#EE9B63',
+  500: '#D86932',
+  600: '#C45728',
+  700: '#A9431F',
+  900: '#60301F',
+  950: '#30231D',
+};
+
+const nature = {
+  50: '#F2F6F0',
+  100: '#DEE9D9',
+  200: '#B9CFAE',
+  500: '#527057',
+  600: '#426047',
+  700: '#344E3A',
+  900: '#203729',
+  950: '#182B20',
 };
 
 const neutral = {
-  0: '#FFFFFF',
-  50: '#FCFCFC',
-  100: '#F4F4F7',
-  200: '#E4E4E9',
-  500: '#8A8492',
-  600: '#6B6D76',
-  900: '#202224',
+  0: '#FFFDF9',
+  50: '#FBF8F2',
+  100: '#F3EEE5',
+  200: '#E4DACE',
+  500: '#8C7F74',
+  600: '#695F57',
+  900: '#2E2925',
 };
 
 const success = {
@@ -63,22 +74,23 @@ export const theme = {
   },
   colors: {
     brand,
+    nature,
     neutral,
     success,
     warning,
     danger,
-    primary: brand[500],
+    primary: brand[700],
     primaryHover: brand[700],
     primarySoft: brand[100],
-    secondary: success.base,
+    secondary: nature[700],
     accent: warning.base,
     background: neutral[50],
     surface: neutral[0],
     text: neutral[900],
     muted: neutral[600],
-    ink: '#151E36',
+    ink: nature[950],
     border: neutral[200],
-    focus: brand[500],
+    focus: brand[700],
     onBrand: neutral[0],
   },
   spacing: {
@@ -105,10 +117,10 @@ export const theme = {
     round: '999px',
   },
   shadows: {
-    soft: '0 14px 36px rgba(54, 15, 94, 0.05)',
-    raised: '0 18px 52px rgba(60, 38, 92, 0.08)',
-    overlay: '0 28px 80px rgba(41, 20, 66, 0.20)',
-    focus: '0 0 0 3px rgba(136, 60, 236, 0.28)',
+    soft: '0 14px 36px rgba(74, 51, 36, 0.06)',
+    raised: '0 18px 52px rgba(54, 73, 58, 0.10)',
+    overlay: '0 28px 80px rgba(29, 51, 37, 0.22)',
+    focus: '0 0 0 3px rgba(169, 67, 31, 0.24)',
   },
   motion: {
     fast: '160ms',

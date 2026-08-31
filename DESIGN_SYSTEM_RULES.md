@@ -1,14 +1,13 @@
-# Regras do Design System Helpsi
+# Regras do Design System Evelyn Psicologia
 
-Estas regras mantêm o site institucional e o sistema Helpsi visualmente
-coerentes. Os valores oficiais estão em `DESIGN_SYSTEM_FOUNDATIONS.md`; neste
-repositório, sua implementação está em `src/styles/theme.js`.
+Estas regras mantêm a landing page visualmente coerente. Os valores oficiais estão em
+`DESIGN_SYSTEM_FOUNDATIONS.md`; sua implementação está em `src/styles/theme.js`.
 
 ## Ordem de decisão
 
 Antes de criar ou alterar uma interface:
 
-1. Entender o contexto: site institucional ou produto operacional.
+1. Entender o contexto editorial e o objetivo de acolhimento da seção.
 2. Consultar os fundamentos e usar primeiro um token semântico existente.
 3. Consultar `DESIGN_SYSTEM_CATALOG.md` e reutilizar o componente ou padrão mais
    próximo.
@@ -20,7 +19,7 @@ Antes de criar ou alterar uma interface:
 ## Regras obrigatórias
 
 - Usar Lato como família tipográfica principal nos dois produtos.
-- Usar roxo somente para marca, ação principal, foco e destaque institucional.
+- Usar laranja para marca, ação principal e foco; verde-floresta para contraste e fundos institucionais.
 - Usar verde, amarelo e vermelho por significado: sucesso, atenção e erro.
 - Usar tokens semânticos (`text`, `muted`, `surface`, `border`) em vez de escolher
   um tom pelo valor hexadecimal.
@@ -31,17 +30,14 @@ Antes de criar ou alterar uma interface:
 - Respeitar `prefers-reduced-motion` e `useReducedMotion`.
 - Reutilizar os ícones de `react-icons` e os assets oficiais antes de criar novos.
 
-## Contexto: Sistema x Site
+## Contexto da landing page
 
 O núcleo é compartilhado, mas a densidade não precisa ser idêntica:
 
-- **Sistema:** interface clínica, compacta e escaneável. Priorizar tipografia de
-  12–24 px, superfícies claras, bordas discretas e pouco movimento.
 - **Site:** comunicação editorial e acolhedora. Pode usar títulos responsivos,
-  composição ampla, imagens reais do produto e motion de entrada.
+  composição ampla, imagens reais do ambiente ou da profissional e motion de entrada.
 
-As diferenças de contexto não autorizam trocar família tipográfica, cores
-semânticas ou estados de interação.
+A composição editorial não autoriza trocar família tipográfica, cores semânticas ou estados de interação.
 
 ## Cores novas
 

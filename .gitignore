@@ -43,3 +43,5 @@ yarn-error.log*
 !/src/assets/screens/**
 !/src/assets/video/
 !/src/assets/video/**
+!/src/assets/instagram/
+!/src/assets/instagram/**

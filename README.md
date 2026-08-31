@@ -1,34 +1,25 @@
-# site-helpsi
+# psipeneluppi
 
-Site institucional da Helpsi, uma plataforma de gestão para profissionais da
-saúde mental.
+Landing page pessoal da psicóloga Evelyn, criada em React com styled-components e Framer Motion.
 
-## Rodar localmente
+## Scripts
 
-```bash
-npm install
-npm start
-```
+- `npm start` — inicia o ambiente local.
+- `npm test` — executa os testes.
+- `npm run build` — gera a versão de produção.
 
-O projeto abre em `http://localhost:3000`.
+## Estrutura
 
-## Design system
+As seções vivem em `src/components` e são compostas por `src/pages/landingpage.jsx`.
+Tokens, breakpoints, movimento e estilos globais ficam em `src/styles`.
+O WhatsApp, a mensagem inicial e o perfil do Instagram ficam centralizados em `src/content/site.js`.
 
-O núcleo visual é compartilhado com o Sistema Helpsi. Antes de alterar a
-interface, consulte:
+Antes de alterar a interface, consulte nesta ordem:
 
-- [`DESIGN_SYSTEM_FOUNDATIONS.md`](./DESIGN_SYSTEM_FOUNDATIONS.md): tokens de
-  cor, tipografia, espaçamento, responsividade e motion;
-- [`DESIGN_SYSTEM_RULES.md`](./DESIGN_SYSTEM_RULES.md): regras de contribuição e
-  exceções;
-- [`DESIGN_SYSTEM_CATALOG.md`](./DESIGN_SYSTEM_CATALOG.md): componentes e padrões
-  reais desta landing page.
+1. `DESIGN_SYSTEM_FOUNDATIONS.md`
+2. `DESIGN_SYSTEM_RULES.md`
+3. `DESIGN_SYSTEM_CATALOG.md`
 
-No site, a implementação dos tokens fica em `src/styles/theme.js`.
+## Personalização pendente
 
-## Validação
-
-```bash
-npm test -- --watchAll=false
-npm run build
-```
+Antes da publicação, confirme com a profissional: CRP, formatos de atendimento, cidade, horários, valores, foto profissional em alta resolução e canais oficiais de contato.

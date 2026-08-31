@@ -14,7 +14,19 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     min-width: 320px;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
   }
 
   button,
@@ -34,6 +46,14 @@ export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 16px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   h1,
@@ -41,6 +61,12 @@ export const GlobalStyles = createGlobalStyle`
   h3 {
     font-family: ${({ theme }) => theme.typography.family};
     text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  p,
+  li {
+    overflow-wrap: anywhere;
   }
 
   ::selection {
