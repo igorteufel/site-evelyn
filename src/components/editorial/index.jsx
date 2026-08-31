@@ -11,8 +11,8 @@ export default function Editorial() {
       <S.Inner>
         <S.Copy as={motion.div} {...state} variants={reveal}>
           <span aria-hidden="true">“</span>
-          <h2>Você não precisa esperar tudo ficar insustentável para começar a cuidar de si.</h2>
-          <p>A terapia também pode ser um lugar de descoberta, não apenas de urgência.</p>
+          <h2>E se aquilo que você sente também merecesse um espaço para existir?</h2>
+          <p>A terapia pode ser um lugar para escutar o que, no cotidiano, acaba ficando sem espaço.</p>
         </S.Copy>
         <S.Portrait as={motion.div} {...state} variants={reveal}>
           <img src={evelynPortrait} alt="Evelyn Peneluppi sentada à mesa com uma caneta na mão" />
