@@ -22,7 +22,7 @@ export const Card = styled.article`
   @media (prefers-reduced-motion: reduce) { transition: none; &:hover { transform: none; } }
 `;
 export const CardImage = styled.img`
-  width: 100%; height: 220px; display: block; object-fit: cover;
+  width: 100%; height: 220px; display: block; object-fit: cover; object-position: ${({ $position }) => $position || 'center'};
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) { height: 300px; }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { height: 220px; }
 `;
