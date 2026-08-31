@@ -7,7 +7,7 @@ import * as S from './styles';
 const principles = [
   { icon: FaRegHeart, title: 'ESCUTAR', text: 'Dar lugar àquilo que muitas vezes não encontra espaço para ser dito.' },
   { icon: FaRegUser, title: 'ENCONTRAR', text: 'A análise se constrói no encontro entre duas pessoas, em um espaço compartilhado de confiança e escuta.' },
-  { icon: FaRegLightbulb, title: 'SUSTENTAR', text: 'Nem tudo precisa ser compreendido de imediato. Algumas experiências precisam primeiro ser sustentadas.' },
+  { icon: FaRegLightbulb, title: 'SUSTENTAR', text: 'Nem tudo precisa ser compreendido de imediato. Algumas experiências pedem sustentação.' },
 ];
 
 export default function About() {
