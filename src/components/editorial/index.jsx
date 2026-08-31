@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { FaVideo } from 'react-icons/fa';
-import evelynPortrait from '../../assets/brand/evelyn-profile-v2.png';
+import evelynPortrait from '../../assets/brand/evelyn-editorial.png';
 import { motionState, reveal } from '../../styles/motion';
 import * as S from './styles';
 
@@ -15,7 +15,7 @@ export default function Editorial() {
           <p>A terapia também pode ser um lugar de descoberta, não apenas de urgência.</p>
         </S.Copy>
         <S.Portrait as={motion.div} {...state} variants={reveal}>
-          <img src={evelynPortrait} alt="Evelyn Peneluppi em um retrato próximo" />
+          <img src={evelynPortrait} alt="Evelyn Peneluppi sentada à mesa com uma caneta na mão" />
           <S.OnlineBadge><FaVideo aria-hidden="true" /><span>Atendimento online<strong>pelo Google Meet</strong></span></S.OnlineBadge>
         </S.Portrait>
       </S.Inner>

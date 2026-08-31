@@ -21,7 +21,7 @@ export const Copy = styled.div`
 export const Portrait = styled.div`
   position: relative; min-height: 540px; overflow: hidden; border: 1px solid rgba(255,255,255,.28); border-radius: ${({ theme }) => theme.radii.xl}; box-shadow: ${({ theme }) => theme.shadows.overlay};
   &::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(180deg, transparent, rgba(24,43,32,.5)); pointer-events: none; }
-  > img { width: 100%; height: 100%; position: absolute; inset: 0; display: block; object-fit: cover; object-position: center 32%; }
+  > img { width: 100%; height: 100%; position: absolute; inset: 0; display: block; object-fit: cover; object-position: center 50%; }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) { min-height: 460px; }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { min-height: 400px; }
 `;
