@@ -1,8 +1,8 @@
 import { FaCloudRain, FaCompass, FaExchangeAlt, FaHeart, FaLink, FaRegMoon } from 'react-icons/fa';
 import { motion, useReducedMotion } from 'framer-motion';
-import connectionImage from '../../assets/brand/support-connection.jpg';
 import reflectionImage from '../../assets/brand/support-reflection.jpg';
 import reassuranceImage from '../../assets/brand/support-reassurance.jpg';
+import sunflowerImage from '../../assets/brand/support-sunflower.jpg';
 import { motionState, reveal, revealSoft, stagger } from '../../styles/motion';
 import * as S from './styles';
 
@@ -17,8 +17,9 @@ const groups = [
     ],
   },
   {
-    image: connectionImage,
-    alt: 'Duas mulheres conversando de forma acolhedora',
+    image: sunflowerImage,
+    alt: 'Evelyn Peneluppi em um campo de girassóis',
+    position: 'center 44%',
     themes: [
       { icon: FaLink, title: 'Relacionamentos', text: 'Para compreender vínculos, limites, conflitos e formas de se relacionar.' },
       { icon: FaHeart, title: 'Autoestima', text: 'Para construir uma relação mais gentil e honesta com quem você é.' },
