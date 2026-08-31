@@ -17,7 +17,7 @@ export default function About() {
       <S.Intro>
         <motion.div {...state} variants={reveal}>
           <S.Kicker>Sobre mim</S.Kicker>
-          <S.Title id="about-title">Prazer, eu sou Evelyn.</S.Title>
+          <S.Title id="about-title">Prazer, eu sou a Evelyn.</S.Title>
           <S.Profile>
             <img src={evelynProfile} alt="Evelyn Peneluppi" />
             <div><strong>Evelyn Peneluppi</strong><span>Psicóloga · Psicanalista</span></div>

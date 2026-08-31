@@ -10,7 +10,7 @@ test('renders the psipeneluppi landing page', () => {
     }),
   ).toBeInTheDocument();
   expect(
-    screen.getByRole('heading', { name: /prazer, eu sou evelyn/i }),
+    screen.getByRole('heading', { name: /prazer, eu sou a evelyn/i }),
   ).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /conteúdos para continuar pensando/i })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /próxima publicação/i })).toBeInTheDocument();
