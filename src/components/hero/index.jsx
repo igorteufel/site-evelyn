@@ -18,7 +18,7 @@ export default function Hero() {
       <S.Inner>
         <MotionCopy {...revealState} variants={stagger}>
           <motion.p variants={reveal} className="eyebrow">Psicologia clínica · Psicanálise</motion.p>
-          <motion.h1 variants={revealMask}>Um espaço para que aquilo que ainda não pôde ser pensado possa começar a <em>existir em palavras.</em></motion.h1>
+          <motion.h1 variants={revealMask}>Um espaço para o que ainda não pôde ser pensado <em>ganhar palavras.</em></motion.h1>
           <motion.p variants={reveal} className="lead">A análise acontece no espaço que construímos juntos.</motion.p>
           <motion.div variants={reveal} className="actions">
             <S.PrimaryAction href={WHATSAPP_URL} target="_blank" rel="noreferrer"><FaWhatsapp aria-hidden="true" /> Agendar uma conversa</S.PrimaryAction>

@@ -6,7 +6,7 @@ test('renders the psipeneluppi landing page', () => {
   expect(screen.getByRole('link', { name: /psipeneluppi — início/i })).toBeInTheDocument();
   expect(
     screen.getByRole('heading', {
-      name: /um espaço para que aquilo que ainda não pôde ser pensado possa começar a existir em palavras/i,
+      name: /um espaço para o que ainda não pôde ser pensado ganhar palavras/i,
     }),
   ).toBeInTheDocument();
   expect(
