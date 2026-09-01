@@ -29,12 +29,16 @@ export const Inner = styled.div`
 export const Copy = styled.div`
   position: relative; z-index: 2;
   .eyebrow { margin-bottom: ${({ theme }) => theme.spacing[5]}; color: ${({ theme }) => theme.colors.primary}; font-size: ${({ theme }) => theme.typography.sizes.label}; font-weight: ${({ theme }) => theme.typography.weights.black}; letter-spacing: 0.14em; text-transform: uppercase; }
-  h1 { max-width: 760px; margin: 0; color: ${({ theme }) => theme.colors.nature[950]}; font-size: ${({ theme }) => theme.typography.sizes.display}; font-weight: ${({ theme }) => theme.typography.weights.black}; line-height: 0.98; letter-spacing: -0.055em; }
+  h1 { max-width: 760px; margin: 0 0 -0.1em; padding-bottom: 0.1em; color: ${({ theme }) => theme.colors.nature[950]}; font-size: ${({ theme }) => theme.typography.sizes.display}; font-weight: ${({ theme }) => theme.typography.weights.black}; line-height: 0.98; letter-spacing: -0.055em; }
   h1 em { color: ${({ theme }) => theme.colors.primary}; font-style: normal; }
   .lead { max-width: 610px; margin-top: ${({ theme }) => theme.spacing[6]}; color: ${({ theme }) => theme.colors.muted}; font-size: ${({ theme }) => theme.typography.sizes.bodyLarge}; line-height: 1.65; }
   .actions { display: flex; flex-wrap: wrap; gap: ${({ theme }) => theme.spacing[3]}; margin-top: ${({ theme }) => theme.spacing[8]}; }
   .privacy { display: flex; align-items: center; gap: ${({ theme }) => theme.spacing[2]}; margin-top: ${({ theme }) => theme.spacing[5]}; color: ${({ theme }) => theme.colors.muted}; font-size: 13px; }
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { h1 { font-size: 44px; } .actions { flex-direction: column; } }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    h1 { font-size: 44px; }
+    .actions { width: 100%; flex-direction: column; }
+    .actions > a { width: 100%; box-sizing: border-box; }
+  }
 `;
 const Action = styled.a`
   min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: ${({ theme }) => theme.spacing[2]}; padding: 0 ${({ theme }) => theme.spacing[6]}; border-radius: ${({ theme }) => theme.radii.round};

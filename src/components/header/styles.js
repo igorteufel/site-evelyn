@@ -34,7 +34,10 @@ export const Cta = styled.a`
   border-radius: ${({ theme }) => theme.radii.round}; color: ${({ theme }) => theme.colors.onBrand}; background: ${({ theme }) => theme.colors.primary};
   font-size: 13px; font-weight: ${({ theme }) => theme.typography.weights.black}; text-decoration: none; transition: transform ${({ theme }) => theme.motion.fast} ${({ theme }) => theme.motion.ease};
   &:hover { transform: translateY(-2px); }
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { padding-inline: ${({ theme }) => theme.spacing[4]}; font-size: 0; svg { font-size: 17px; } }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    width: 56px; height: 44px; min-height: 44px; flex: 0 0 56px; gap: 0; padding: 0; font-size: 0;
+    svg { display: block; width: 17px; height: 17px; }
+  }
 `;
 export const MenuButton = styled.button`
   display: none; width: 44px; height: 44px; border: 0; border-radius: ${({ theme }) => theme.radii.round}; color: ${({ theme }) => theme.colors.nature[900]}; background: ${({ theme }) => theme.colors.nature[50]}; cursor: pointer;
