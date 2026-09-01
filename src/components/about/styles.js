@@ -2,15 +2,11 @@ import styled from 'styled-components';
 
 export const Section = styled.section`padding: ${({ theme }) => theme.spacing[30]} 0; scroll-margin-top: ${({ theme }) => theme.layout.headerHeight}; @media (max-width: ${({ theme }) => theme.breakpoints.md}) { padding: ${({ theme }) => theme.spacing[20]} 0; }`;
 export const Intro = styled.div`
-  display: grid; grid-template-columns: minmax(280px, .7fr) 1fr; gap: ${({ theme }) => theme.spacing[16]}; align-items: start;
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) { grid-template-columns: minmax(560px, .85fr) 1fr; }
+  display: grid; grid-template-columns: minmax(280px, .7fr) 1fr; gap: ${({ theme }) => theme.spacing[16]}; align-items: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) { grid-template-columns: 1fr; gap: ${({ theme }) => theme.spacing[8]}; }
 `;
 export const Kicker = styled.p`margin: 0 0 ${({ theme }) => theme.spacing[4]}; color: ${({ theme }) => theme.colors.primary}; font-size: ${({ theme }) => theme.typography.sizes.label}; font-weight: 900; letter-spacing: .12em; text-transform: uppercase;`;
-export const Title = styled.h2`
-  max-width: 520px; margin: 0; color: ${({ theme }) => theme.colors.brand[950]}; font-size: ${({ theme }) => theme.typography.sizes.section}; line-height: 1.02; letter-spacing: -.04em;
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) { max-width: none; white-space: nowrap; }
-`;
+export const Title = styled.h2`max-width: 520px; margin: 0; color: ${({ theme }) => theme.colors.brand[950]}; font-size: ${({ theme }) => theme.typography.sizes.section}; line-height: 1.02; letter-spacing: -.04em;`;
 export const Text = styled.p`max-width: 700px; margin: 0 0 ${({ theme }) => theme.spacing[5]}; color: ${({ theme }) => theme.colors.muted}; font-size: ${({ theme }) => theme.typography.sizes.bodyLarge}; line-height: 1.7;`;
 export const Profile = styled.div`
   display: flex; align-items: center; gap: ${({ theme }) => theme.spacing[4]}; margin-top: ${({ theme }) => theme.spacing[8]};
