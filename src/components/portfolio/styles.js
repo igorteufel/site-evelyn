@@ -15,7 +15,7 @@ export const Content = styled.div`
 `;
 export const Visual = styled.figure`
   position: relative; min-height: 520px; margin: 0; overflow: hidden; border-radius: ${({ theme }) => theme.radii.lg}; box-shadow: ${({ theme }) => theme.shadows.raised};
-  > img { width: 100%; height: 100%; position: absolute; inset: 0; display: block; object-fit: cover; }
+  > img { width: 100%; height: 100%; position: absolute; inset: 0; display: block; object-fit: cover; object-position: center 67%; }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) { min-height: 440px; }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) { min-height: 320px; }
 `;

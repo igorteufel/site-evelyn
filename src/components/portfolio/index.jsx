@@ -1,6 +1,6 @@
 import { FaVideo } from 'react-icons/fa';
 import { motion, useReducedMotion } from 'framer-motion';
-import onlineTherapyImage from '../../assets/brand/online-therapy-process.jpg';
+import evelynWithDogs from '../../assets/brand/evelyn-com-cachorros.jpg';
 import { motionState, reveal, revealSoft, stagger } from '../../styles/motion';
 import * as S from './styles';
 
@@ -22,7 +22,7 @@ export default function Portfolio() {
         </S.Header>
         <S.Content>
           <S.Visual as={motion.figure} {...state} variants={revealSoft}>
-            <img src={onlineTherapyImage} alt="Notebook preparado para uma conversa de terapia online" loading="lazy" />
+            <img src={evelynWithDogs} alt="Evelyn com seus dois cachorros em frente a uma igreja" loading="lazy" />
             <S.VisualNote><FaVideo aria-hidden="true" /><span>Atendimento online<strong>Google Meet · 50 minutos</strong></span></S.VisualNote>
           </S.Visual>
           <S.Steps as={motion.div} {...state} variants={stagger}>
