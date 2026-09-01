@@ -27,10 +27,10 @@ export default function About() {
             <span>Atendimento exclusivamente online para adolescentes e adultos · Jacareí — SP.</span>
           </S.ProfessionalDetails>
         </motion.div>
-        <motion.div {...state} variants={reveal}>
+        <S.Copy as={motion.div} {...state} variants={reveal}>
           <S.Text>Meu trabalho, orientado pela psicanálise, parte da escuta e do encontro. Na terapia, você não precisa chegar com respostas prontas, nosso ponto de partida é aquilo que hoje pede espaço.</S.Text>
           <S.Text>Acredito na clínica como um espaço construído a dois: um lugar de confiança e sustentação, onde aquilo que é dito e também aquilo que ainda não encontrou palavras pode ser escutado, pensado e elaborado.</S.Text>
-        </motion.div>
+        </S.Copy>
       </S.Intro>
       <S.Principles as={motion.div} {...state} variants={stagger}>
         {principles.map(({ icon: Icon, title, text }, index) => (
