@@ -63,13 +63,15 @@ function Landingpage() {
       )}
       <S.LandingPageContainer>
         <Header />
-        <Hero />
-        <About />
-        <Instagram />
-        <Editorial />
-        <Works />
-        <Portfolio />
-        <Experience />
+        <S.Main>
+          <Hero />
+          <About />
+          <Instagram />
+          <Editorial />
+          <Works />
+          <Portfolio />
+          <Experience />
+        </S.Main>
         <Footer />
       </S.LandingPageContainer>
 

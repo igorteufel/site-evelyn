@@ -13,6 +13,10 @@ export const Profile = styled.div`
   img { width: 72px; height: 72px; display: block; object-fit: cover; border: 3px solid ${({ theme }) => theme.colors.brand[100]}; border-radius: ${({ theme }) => theme.radii.round}; }
   strong, span { display: block; } strong { color: ${({ theme }) => theme.colors.nature[900]}; font-size: 15px; } span { margin-top: ${({ theme }) => theme.spacing[1]}; color: ${({ theme }) => theme.colors.primary}; font-size: 12px; font-weight: 700; }
 `;
+export const ProfessionalDetails = styled.p`
+  max-width: 520px; margin: ${({ theme }) => theme.spacing[4]} 0 0; color: ${({ theme }) => theme.colors.muted}; font-size: 12px; line-height: 1.6;
+  span { display: block; }
+`;
 export const Principles = styled.div`display: grid; grid-template-columns: repeat(3, 1fr); gap: ${({ theme }) => theme.spacing[5]}; margin-top: ${({ theme }) => theme.spacing[16]}; @media (max-width: ${({ theme }) => theme.breakpoints.md}) { grid-template-columns: 1fr; margin-top: ${({ theme }) => theme.spacing[10]}; }`;
 export const Card = styled.article`
   min-height: 260px; padding: ${({ theme }) => theme.spacing[8]}; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid ${({ theme }) => theme.colors.border}; border-radius: ${({ theme }) => theme.radii.lg}; background: ${({ theme }) => theme.colors.surface}; box-shadow: ${({ theme }) => theme.shadows.soft};

@@ -1,6 +1,6 @@
 import { FaArrowDown, FaLock, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import { motion, useReducedMotion } from 'framer-motion';
-import heroPortrait from '../../assets/brand/evelyn-hero.jpg';
+import heroPortrait from '../../assets/brand/evelyn-hero-seo.jpg';
 import { WHATSAPP_URL } from '../../content/site';
 import { motionState, reveal, revealMask, revealSoft, stagger } from '../../styles/motion';
 import * as S from './styles';
@@ -17,9 +17,9 @@ export default function Hero() {
       <S.DotField aria-hidden="true" />
       <S.Inner>
         <MotionCopy {...revealState} variants={stagger}>
-          <motion.p variants={reveal} className="eyebrow">Psicologia clínica · Psicanálise</motion.p>
+          <motion.p variants={reveal} className="eyebrow">Psicóloga online · Psicanálise</motion.p>
           <motion.h1 variants={revealMask}>Um espaço para o que ainda não pôde ser pensado <em>ganhar palavras.</em></motion.h1>
-          <motion.p variants={reveal} className="lead">A análise acontece no espaço que construímos juntos.</motion.p>
+          <motion.p variants={reveal} className="lead">Psicoterapia online para adolescentes e adultos, orientada pela psicanálise.</motion.p>
           <motion.div variants={reveal} className="actions">
             <S.PrimaryAction href={WHATSAPP_URL} target="_blank" rel="noreferrer"><FaWhatsapp aria-hidden="true" /> Agendar uma conversa</S.PrimaryAction>
             <S.SecondaryAction href="#sobre">Conhecer meu trabalho</S.SecondaryAction>
@@ -27,12 +27,12 @@ export default function Hero() {
           <motion.div variants={reveal} className="privacy"><FaLock aria-hidden="true" /> Atendimento ético, acolhedor e confidencial</motion.div>
         </MotionCopy>
         <MotionVisual {...revealState} variants={revealSoft}>
-          <S.ImageFrame><img src={heroPortrait} alt="Retrato de Evelyn Peneluppi" /></S.ImageFrame>
+          <S.ImageFrame><img src={heroPortrait} alt="Evelyn Peneluppi, psicóloga e psicanalista" width="1120" height="1400" fetchPriority="high" /></S.ImageFrame>
           <S.GlassMessage>
             <FaRegHeart aria-hidden="true" />
             <div><span>Um encontro por vez</span><strong>Escuta sem pressa.</strong></div>
           </S.GlassMessage>
-          <S.Note><span>Psicóloga · Psicanalista</span><p>Evelyn<br />Peneluppi</p></S.Note>
+          <S.Note><span>Psicóloga · Psicanalista · CRP 06/137667</span><p>Evelyn<br />Peneluppi</p></S.Note>
         </MotionVisual>
       </S.Inner>
       <S.ScrollLink href="#sobre">Conheça esta proposta <FaArrowDown aria-hidden="true" /></S.ScrollLink>

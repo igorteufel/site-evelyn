@@ -35,6 +35,12 @@ export const LandingPageContainer = styled.div`
 
 `;
 
+export const Main = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Progress = styled.div`
   position: fixed;
   z-index: 2000;

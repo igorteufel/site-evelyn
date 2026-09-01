@@ -80,7 +80,7 @@ export default function Instagram() {
                     }}
                     aria-label={`Abrir publicação no Instagram: ${item.label}`}
                   >
-                    <img src={item.image} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+                    <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
                     <S.GlassCaption>
                       <span>{index === active ? 'Em destaque' : `Publicação ${String(index + 1).padStart(2, '0')}`}</span>
                       <strong>{item.label}</strong>
