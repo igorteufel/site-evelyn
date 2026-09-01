@@ -25,4 +25,5 @@ test('renders the psipeneluppi landing page', () => {
   expect(screen.getByText(/cada atendimento dura 50 minutos e é realizado de forma online, pelo google meet/i)).toBeInTheDocument();
   expect(screen.getAllByRole('link', { name: /falar comigo/i })[0]).toHaveAttribute('href', expect.stringContaining('wa.me/5512988324925'));
   expect(screen.getByRole('link', { name: /abrir o instagram da evelyn/i })).toHaveAttribute('href', 'https://www.instagram.com/psipeneluppi/');
+  expect(screen.getByRole('link', { name: /tiktok da evelyn/i })).toHaveAttribute('href', 'https://www.tiktok.com/@psipeneluppi');
 });

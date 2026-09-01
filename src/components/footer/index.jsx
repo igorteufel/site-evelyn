@@ -1,5 +1,5 @@
-import { FaArrowUp, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { INSTAGRAM_URL, WHATSAPP_URL } from '../../content/site';
+import { FaArrowUp, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import { INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from '../../content/site';
 import * as S from './styles';
 
 export default function Footer() {
@@ -16,6 +16,7 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} psipeneluppi. Todos os direitos reservados.</p>
         <S.Socials>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da Evelyn"><FaInstagram aria-hidden="true" /></a>
+          <a href={TIKTOK_URL} target="_blank" rel="noreferrer" aria-label="TikTok da Evelyn"><FaTiktok aria-hidden="true" /></a>
           <a href="#inicio" aria-label="Voltar ao início"><FaArrowUp aria-hidden="true" /></a>
         </S.Socials>
       </S.Bottom>
