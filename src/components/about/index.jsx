@@ -23,8 +23,7 @@ export default function About() {
             <div><strong>Evelyn Peneluppi</strong><span>Psicóloga · Psicanalista · CRP 06/137667</span></div>
           </S.Profile>
           <S.ProfessionalDetails>
-            <span>Evelyn Vieira Paiva Peneluppi de Oliveira, Psicóloga CRP 06/137667.</span>
-            <span>Atendimento exclusivamente online para adolescentes e adultos · Jacareí — SP.</span>
+            <span>Evelyn Vieira Paiva Peneluppi de Oliveira é psicóloga e psicanalista (CRP 06/137667), atua a partir de Jacareí - SP e atende exclusivamente online adolescentes e adultos.</span>
           </S.ProfessionalDetails>
         </motion.div>
         <S.Copy as={motion.div} {...state} variants={reveal}>
